@@ -43,7 +43,7 @@ pipeline {
             steps {
                 script {
                     echo "Validating Docker Compose configuration..."
-                    sh 'docker compose config'
+                    sh 'docker config'
                 }
             }
         }
@@ -129,7 +129,7 @@ NODE_ENV=production
 
                     sh """
                         # Check if containers are running
-                        docker compose ps
+                        docker ps
 
                         # Wait for API to be ready (max 60 seconds)
                         timeout 60 bash -c 'until curl -f http://localhost:3001/health; do sleep 2; done' || exit 1
@@ -150,11 +150,11 @@ NODE_ENV=production
 
                     sh """
                         echo "=== Container Status ==="
-                        docker compose ps
+                        docker ps
 
                         echo ""
                         echo "=== Service Logs (last 20 lines) ==="
-                        docker compose logs --tail=20
+                        docker logs --tail=20
 
                         echo ""
                         echo "=== Deployed Services ==="
@@ -182,7 +182,7 @@ NODE_ENV=production
             echo "❌ Deployment failed!"
             script {
                 echo "Printing container logs for debugging..."
-                sh 'docker compose logs --tail=50 || true'
+                sh 'docker logs --tail=50 || true'
             }
         }
         always {

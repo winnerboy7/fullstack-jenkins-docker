@@ -24,7 +24,7 @@ services:
     environment:
       - NODE_ENV=production
     ports:
-      - "${FRONTEND_PORT}:8000"
+      - "${FRONTEND_PORT}:3000"
     depends_on: [api]
     networks: [stack]
 
