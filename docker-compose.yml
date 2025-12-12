@@ -34,4 +34,3 @@ volumes:
 networks:
   stack:
     driver: bridge
-    external: true
