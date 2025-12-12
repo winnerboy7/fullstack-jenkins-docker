@@ -1,6 +1,7 @@
 services:
   api:
     build: ./api
+    container_name: api
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -20,6 +21,7 @@ services:
       context: ./frontend
       args:
         - API_HOST=${API_HOST:-http://localhost:3001}
+    container_name: frontend
     restart: unless-stopped
     environment:
       - NODE_ENV=production

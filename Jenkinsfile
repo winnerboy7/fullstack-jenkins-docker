@@ -123,7 +123,7 @@ NODE_ENV=production
             steps {
                 script {
                     echo "Waiting for services to start..."
-                    sh 'sleep 15'
+                    sh 'sleep 5'
 
                     echo "Performing health check..."
 
@@ -154,7 +154,7 @@ NODE_ENV=production
 
                         echo ""
                         echo "=== Service Logs (last 20 lines) ==="
-                        docker logs --tail=20
+                        docker logs frontend --tail=20
 
                         echo ""
                         echo "=== Deployed Services ==="
@@ -182,7 +182,7 @@ NODE_ENV=production
             echo "❌ Deployment failed!"
             script {
                 echo "Printing container logs for debugging..."
-                sh 'docker logs --tail=50 || true'
+                sh 'docker logs frontend --tail=50 || true'
             }
         }
         always {
