@@ -78,7 +78,7 @@ API_HOST=${params.API_HOST}
                         echo ".env file created successfully"
 
                         // Safely write .env without using `sh` interpolation
-                        writeFile file: '/api/.env.prod', text: """\
+                        writeFile file: 'api/.env.prod', text: """\
 PORT=3001
 DB_HOST=209.15.110.99
 DB_PORT=3306
@@ -90,6 +90,16 @@ NODE_ENV=production
 
                         // Avoid printing secrets
                         echo "API .env file created successfully"
+
+                        // Safely write .env without using `sh` interpolation
+                        writeFile file: 'frontend/.env', text: """\
+API_HOST=http://localhost:3001
+NEXT_TELEMETRY_DISABLED=1
+NODE_ENV=production
+""".stripIndent()
+
+                        // Avoid printing secrets
+                        echo "Frontend .env file created successfully"
                     }
                 }
             }
