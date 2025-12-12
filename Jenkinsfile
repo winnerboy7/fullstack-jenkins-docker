@@ -64,11 +64,12 @@ MYSQL_ROOT_PASSWORD=${env.MYSQL_ROOT_PASS}
 MYSQL_DATABASE=tomdev
 MYSQL_USER=tomdev
 MYSQL_PASSWORD=${env.MYSQL_PASS}
+MYSQL_HOST=${params.API_HOST}
 MYSQL_PORT=3306
 PHPMYADMIN_PORT=8080
 API_PORT=3001
 DB_PORT=3306
-FRONTEND_PORT=3000
+FRONTEND_PORT=8000
 NODE_ENV=production
 API_HOST=${params.API_HOST}
 """.stripIndent()
@@ -157,7 +158,7 @@ NODE_ENV=production
 
                         echo ""
                         echo "=== Deployed Services ==="
-                        echo "Frontend: http://localhost:3000"
+                        echo "Frontend: http://localhost:8000"
                         echo "API: http://localhost:3001"
                         echo "phpMyAdmin: http://localhost:8080"
                     """
@@ -173,7 +174,7 @@ NODE_ENV=production
             echo "Commit: ${env.GIT_COMMIT_SHORT}"
             echo ""
             echo "Access your application:"
-            echo "  - Frontend: http://localhost:3000"
+            echo "  - Frontend: http://localhost:8000"
             echo "  - API: http://localhost:3001"
             echo "  - phpMyAdmin: http://localhost:8080"
         }

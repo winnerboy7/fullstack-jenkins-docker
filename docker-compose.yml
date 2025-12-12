@@ -24,7 +24,7 @@ services:
     environment:
       - NODE_ENV=production
     ports:
-      - "${FRONTEND_PORT}:3000"
+      - "${FRONTEND_PORT}:8000"
     depends_on: [api]
     networks: [stack]
 
@@ -34,3 +34,4 @@ volumes:
 networks:
   stack:
     driver: bridge
+    external: true
