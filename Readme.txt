@@ -10,6 +10,7 @@ git add .
 git commit -m "Initial commit"
 git branch -M master
 git remote add origin https://github.com/winnerboy7/fullstack-jenkins-docker.git
+git pull origin master --allow-unrelated-histories
 git push -u origin master
 
 git checkout -b feature
