@@ -132,10 +132,10 @@ NODE_ENV=production
                         docker ps
 
                         # Wait for API to be ready (max 60 seconds)
-                        timeout 60 bash -c 'until curl -f http://localhost:3001/health; do sleep 2; done' || exit 1
+                        timeout 60 bash -c 'until curl -f ${params.API_HOST}/health; do sleep 2; done' || exit 1
 
                         # Check attractions endpoint
-                        curl -f http://localhost:3001/attractions || exit 1
+                        curl -f ${params.API_HOST}/attractions || exit 1
 
                         echo "Health check passed!"
                     """
