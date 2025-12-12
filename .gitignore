@@ -35,7 +35,6 @@ yarn-error.log*
 /frontend/env*
 /frontend/node_modules
 
-
 # vercel
 .vercel
 

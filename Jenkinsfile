@@ -20,7 +20,7 @@ pipeline {
         )
         string(
             name: 'API_HOST',
-            defaultValue: 'http://<<VPS_IP>>:3001',
+            defaultValue: 'http://209.15.110.99:3001',
             description: 'API host URL for frontend to connect to.'
         )
     }
@@ -64,7 +64,7 @@ MYSQL_ROOT_PASSWORD=${env.MYSQL_ROOT_PASS}
 MYSQL_DATABASE=tomdev
 MYSQL_USER=tomdev
 MYSQL_PASSWORD=${env.MYSQL_PASS}
-MYSQL_HOST=${params.API_HOST}
+MYSQL_HOST=209.15.110.99
 MYSQL_PORT=3306
 PHPMYADMIN_PORT=8080
 API_PORT=3001
@@ -80,7 +80,7 @@ API_HOST=${params.API_HOST}
                         // Safely write .env without using `sh` interpolation
                         writeFile file: '/api/.env.prod', text: """\
 PORT=3001
-DB_HOST=${params.API_HOST}
+DB_HOST=209.15.110.99
 DB_PORT=3306
 DB_NAME=tomdev
 DB_USER=tomdev
